@@ -1,3 +1,4 @@
+// hard coded dummy api response data
 const responseData = [
   {
     name: "Arbaz",
@@ -26,29 +27,35 @@ const apiCalling = new Promise((resolve, reject) => {
   }
 });
 
-// console.log, console.table, console.error, console.warn
 // .then().catch() => using promises
 apiCalling.then((res) => console.log(res)).catch((err) => console.error(err));
 
-// async await -> arrow function
+// -> async await arrow function syntax
 const fetchData = async () => {
   try {
-    const resposne = await apiCalling;
-    const data = await resposne.json()
+    const response = await apiCalling;
+    const data = await response.json();
     console.log(data);
   } catch (err) {
-    console.error(`An unknow error occured ${err}`);
+    console.error(`An unknown error occurred ${err}`);
   }
 };
 
 // -> normal function async syntax
 async function fetchData() {
   try {
-    const resposne = await apiCalling;
+    const response = await apiCalling;
     console.log(resposne);
   } catch (err) {
-    console.error(`An unknow error occured ${err}`);
+    console.error(`An unknown error occurred ${err}`);
   }
 }
 
 fetchData();
+
+// different type of console function
+/*1) console.log - ordinary console used for debugging and print statement
+  2) console.table - console with formatted data in tabular structure
+  3) console.error - console data with error highlighted in red color
+  4) console.warn - console with warning highlight in yellow color
+ */
